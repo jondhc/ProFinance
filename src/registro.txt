@@ -1,9 +1,15 @@
 G
 11/02/18
 14:35
-30.5
+-30.5
 Chocolate
 Alimentos
+G
+12/01/18
+10:25
+-300.0
+Pago Netflix
+Entretenimiento
 I
 11/02/18
 14:37
