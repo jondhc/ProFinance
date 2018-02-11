@@ -16,7 +16,7 @@ import java.io.IOException;
  */
 public class SequentialFile
 {
-    // representacion abstracta del archivo
+    // representación abstracta del archivo
     private File file;
     // lector de archivo
     private FileReader fileReader;
@@ -87,7 +87,7 @@ public class SequentialFile
         }//end try
         catch(FileNotFoundException excepcion)
         {
-            System.out.println("No se encontro el archivo!!!");
+            System.out.println("No se encontró el archivo!!!");
         }//end catch
         eof=false;
     }//end open
@@ -138,7 +138,7 @@ public class SequentialFile
         int integer;
         //--------------
 
-        // inicia valores de la linea a regresar
+        // inicia valores de la línea a regresar
         line = "ni";
         character = 'l';
         // linea + caracter == "nil" como valor inicial
@@ -302,7 +302,7 @@ public class SequentialFile
 
     private void writeLine(String cadena)
     {
-        // se escribira un arreglo de BYTES
+        // se escribirá un arreglo de BYTES
         byte outputArray[];
         int i;
         //--------------------
@@ -314,7 +314,7 @@ public class SequentialFile
         {
             try
             {
-                // escribimos el iesimo byte
+                // escribimos el iésimo byte
                 outputStream.write(outputArray[i]);
                 numberOfLines = numberOfLines + 1;
             }//end try
@@ -383,7 +383,7 @@ public class SequentialFile
     {
         String line;
         //-----------
-        // se inicia la cadena vacia
+        // se inicia la cadena vacía
         line = "";
         // se hace la cadena con el caracter
         line = line + aChar + newLine;
