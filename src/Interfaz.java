@@ -386,6 +386,10 @@ public class Interfaz extends Frame implements View {
         botonEliminar.addActionListener(controller);
         botonAnterior.addActionListener(controller);
         botonSiguiente.addActionListener(controller);
+        botonReporte.addActionListener(controller);
+        botonLimpiar.addActionListener(controller);
+        botonOrdenar.addActionListener(controller);
+        botonGuardar.addActionListener(controller);
 
     } //end setActionListener
 
