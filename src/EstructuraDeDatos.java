@@ -22,7 +22,7 @@ public class EstructuraDeDatos extends LinkedList<Movimiento> implements Model {
         String concepto;
         String categoria;
 
-        repositorio = new SequentialFile("Users/jondhc/Documents/Java/Patrones de diseño de software/ProFinanceV2/src", "registro", "txt");
+        repositorio = new SequentialFile("/Users/jondhc/Documents/Java/Patrones de diseño de software/ProFinanceV2/src", "registro", "txt");
         repositorio.open();
         numeroDeLineas = repositorio.getNumberOfLines();
         numeroDeRegistros = numeroDeLineas / 6;
@@ -62,7 +62,7 @@ public class EstructuraDeDatos extends LinkedList<Movimiento> implements Model {
         String concepto;
         String categoria;
 
-        repositorio = new SequentialFile("Users/jondhc/Documents/Java/Patrones de diseño de software/ProFinanceV2/src", "registro", "txt");
+        repositorio = new SequentialFile("/Users/jondhc/Documents/Java/Patrones de diseño de software/ProFinanceV2/src", "registro", "txt");
         repositorio.create();
         i = 0;
         while (i < size()) {
@@ -118,7 +118,7 @@ public class EstructuraDeDatos extends LinkedList<Movimiento> implements Model {
         tipo = dato.getTipo();
         cantidad = dato.getCantidad();
         if (tipo == 'G') {
-            cantidad = (cantidad * cantidad) * -1;
+            cantidad = (Math.sqrt(Math.pow(cantidad, 2))) * -1;
         } //end if
         dato.setCantidad(cantidad);
         return cantidad;
