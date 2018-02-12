@@ -7,13 +7,10 @@ public class CSVReport extends LinkedList<Movimiento> {
     private static final String COMMA_DELIMITER = ",";
     private static final String NEW_LINE_SEPARATOR = "\n";
     private static final LinkedList<Movimiento> movimientos = new LinkedList<Movimiento>();
-
-    //CSV file header
     private static final String FILE_HEADER = "Tipo, Fecha, Hora, Cantidad, Concepto, Categoria";
 
     public static void writeCsvFile(String fileName) {
 
-        //Create new students objects
         Movimiento movimiento1 = new Movimiento();
         movimiento1.setTipo('G');
         movimiento1.setFecha("11/02/18");
@@ -50,20 +47,14 @@ public class CSVReport extends LinkedList<Movimiento> {
         movimiento4.setCategoria("Prestamos");
         movimientos.add(movimiento4);
 
-        //Create a new list of student objects
-
         FileWriter fileWriter = null;
 
         try {
             fileWriter = new FileWriter(fileName);
-
-            //Write the CSV file header
             fileWriter.append(FILE_HEADER.toString());
 
-            //Add a new line separator after the header
             fileWriter.append(NEW_LINE_SEPARATOR);
             int i = 0;
-            //Write a new student object list to the CSV file
             while (i < movimientos.size()) {
                 Double objetoDouble;
                 String cantidad;
@@ -97,11 +88,11 @@ public class CSVReport extends LinkedList<Movimiento> {
             try {
                 fileWriter.flush();
                 fileWriter.close();
-            } catch (IOException e) {
+            } //end try
+            catch (IOException e) {
                 System.out.println("Error while flushing/closing fileWriter !!!");
                 e.printStackTrace();
-            }
-
+            } //end catch
         } //end finally
     } //end writeCVSFile
 
