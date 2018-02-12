@@ -4,10 +4,15 @@ import java.util.LinkedList;
 public class EstructuraDeDatos extends LinkedList<Movimiento> implements Model {
 
     SequentialFile repositorio;
+    public static double total;
 
     public EstructuraDeDatos() {
         cargaDatosDelRepositorioALaEstructura();
     } //end EstructuraDeDatos
+
+    public static double getTotal() {
+        return total;
+    }
 
     public void cargaDatosDelRepositorioALaEstructura() {
         int numeroDeLineas;
@@ -22,6 +27,7 @@ public class EstructuraDeDatos extends LinkedList<Movimiento> implements Model {
         String concepto;
         String categoria;
 
+        total = 0.0;
         repositorio = new SequentialFile("/Users/jondhc/Documents/Java/Patrones de diseño de software/ProFinanceV2/src", "registro", "txt");
         repositorio.open();
         numeroDeLineas = repositorio.getNumberOfLines();
@@ -35,6 +41,7 @@ public class EstructuraDeDatos extends LinkedList<Movimiento> implements Model {
             cantidad = repositorio.readDouble();
             concepto = repositorio.readString();
             categoria = repositorio.readString();
+            total += cantidad;
 
             dato = new Movimiento();
 
@@ -51,7 +58,7 @@ public class EstructuraDeDatos extends LinkedList<Movimiento> implements Model {
 
         } //end while
 
-    } //end cargaDatosDelRepositorioALaEstructura
+    } //end cargaDatosDelRepositorioALaEstructura;
 
     public void salvaDatosDeLaEstructuraAlRepositorio() {
         int i;

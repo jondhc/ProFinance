@@ -74,7 +74,9 @@ public class Interventor implements Controller {
 
         dato = obtieneDatoDelModel(indice);
         if (dato != null) {
-
+            double total = EstructuraDeDatos.getTotal();
+            Double totalDouble = new Double(total);
+            view.etiquetaCantidadTotal.setText(totalDouble.toString());
             view.campoFecha.setText(dato.getFecha());
             view.campoHora.setText(dato.getHora());
             cantidad = procesamientoPorParteDelModel(indice);
