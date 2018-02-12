@@ -127,6 +127,10 @@ public class Interventor implements Controller {
             model.ordenaLaEstructura();
         } //end if
 
+        if (accion.equals("reporte")) {
+            model.generaReporte();
+        } //end if
+
     } //end  solicitaActualizacionDelModel
 
     private void decrementaApuntador() {
@@ -190,7 +194,9 @@ public class Interventor implements Controller {
         } //end if
 
         if (botonAccionado == view.botonReporte) {
-            CSVReport.generarReporte();
+            if (model.hayDatos()) {
+                solicitaActualizacionDelModel("reporte");
+            }//end if
         } //end if
 
         if (botonAccionado == view.botonLimpiar) {

@@ -22,3 +22,9 @@ I
 35.5
 Cobro
 Prestamos
+I
+12/02/18
+15:37
+550
+Salario
+Trabajo

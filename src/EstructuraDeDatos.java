@@ -1,3 +1,5 @@
+import java.io.FileWriter;
+import java.io.IOException;
 import java.util.Collections;
 import java.util.LinkedList;
 
@@ -139,5 +141,60 @@ public class EstructuraDeDatos extends LinkedList<Movimiento> implements Model {
             return false;
         } //end else
     } //end hayDatos
+
+    public void generaReporte() {
+        String fileName = "reporte.csv";
+        String COMMA_DELIMITER = ",";
+        String NEW_LINE_SEPARATOR = "\n";
+        String FILE_HEADER = "Tipo, Fecha, Hora, Cantidad, Concepto, Categoria";
+        FileWriter fileWriter = null;
+
+
+        try {
+            fileWriter = new FileWriter(fileName);
+            fileWriter.append(FILE_HEADER.toString());
+
+            fileWriter.append(NEW_LINE_SEPARATOR);
+            int i = 0;
+            while (i < size()) {
+                Double objetoDouble;
+                String cantidad;
+                objetoDouble = get(i).getCantidad();
+                cantidad = objetoDouble.toString();
+
+                fileWriter.append(get(i).getTipo());
+                fileWriter.append(COMMA_DELIMITER);
+                fileWriter.append(get(i).getFecha());
+                fileWriter.append(COMMA_DELIMITER);
+                fileWriter.append(get(i).getHora());
+                fileWriter.append(COMMA_DELIMITER);
+                fileWriter.append(cantidad);
+                fileWriter.append(COMMA_DELIMITER);
+                fileWriter.append(get(i).getConcepto());
+                fileWriter.append(COMMA_DELIMITER);
+                fileWriter.append(get(i).getCategoria());
+                fileWriter.append(NEW_LINE_SEPARATOR);
+
+                i = i + 1;
+            } //end while
+
+            System.out.println("CSV file was created successfully in the parent directory");
+
+        } //end try
+        catch (Exception e) {
+            System.out.println("Error in CsvFileWriter !!!");
+            e.printStackTrace();
+        } //end catch
+        finally {
+            try {
+                fileWriter.flush();
+                fileWriter.close();
+            } //end try
+            catch (IOException e) {
+                System.out.println("Error while flushing/closing fileWriter !!!");
+                e.printStackTrace();
+            } //end catch
+        } //end finally
+    } //end generaReporte
 
 } //End EstructuraDeDatos
