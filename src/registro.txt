@@ -5,6 +5,12 @@ G
 Chocolate
 Alimentos
 G
+12/02/18
+17:36
+-112.0
+Café
+Ocio
+G
 12/01/18
 10:25
 -300.0
@@ -25,6 +31,6 @@ Prestamos
 I
 12/02/18
 15:37
-550
+550.0
 Salario
 Trabajo
