@@ -86,7 +86,7 @@ public class CSVReport extends LinkedList<Movimiento> {
                 i = i + 1;
             } //end while
 
-            System.out.println("CSV file was created successfully in the src directory");
+            System.out.println("CSV file was created successfully in the parent directory");
 
         } //end try
         catch (Exception e) {
