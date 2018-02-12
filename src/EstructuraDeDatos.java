@@ -74,7 +74,7 @@ public class EstructuraDeDatos extends LinkedList<Movimiento> implements Model {
         repositorio = new SequentialFile("/Users/jondhc/Documents/Java/Patrones de diseño de software/ProFinanceV2/src", "registro", "txt");
         repositorio.create();
         i = 0;
-        while (i < size()) {
+        while (i < size() - 1) {
 
             tipo = get(i).getTipo();
             fecha = get(i).getFecha();
@@ -92,6 +92,20 @@ public class EstructuraDeDatos extends LinkedList<Movimiento> implements Model {
 
             i = i + 1;
         } //end while
+
+        tipo = get(size() - 1).getTipo();
+        fecha = get(size() - 1).getFecha();
+        hora = get(size() - 1).getHora();
+        cantidad = get(size() - 1).getCantidad();
+        concepto = get(size() - 1).getConcepto();
+        categoria = get(size() - 1).getCategoria();
+
+        repositorio.writeChar(tipo);
+        repositorio.writeString(fecha);
+        repositorio.writeString(hora);
+        repositorio.writeDouble(cantidad);
+        repositorio.writeString(concepto);
+        repositorio.writeFinalString(categoria);
 
     } //end salvaDatosDeLaEstructuraAlRepositorio
 

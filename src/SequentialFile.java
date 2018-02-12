@@ -337,6 +337,18 @@ public class SequentialFile
         eof = false;
     }//end writeString
 
+    public void writeFinalString(String aString) {
+        if (firstLineHasBeenWritten)
+            aString = aString;
+            //end if
+        else
+            firstLineHasBeenWritten = true;
+        //end else
+        writeLine(aString);
+        writeLine("");
+        eof = false;
+    }//end writeFinalString
+
 
     /** Writes a int value as a new line into the sequential file.
      *
