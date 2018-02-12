@@ -190,7 +190,7 @@ public class Interventor implements Controller {
         } //end if
 
         if (botonAccionado == view.botonReporte) {
-
+            CSVReport.generarReporte();
         } //end if
 
         if (botonAccionado == view.botonLimpiar) {
