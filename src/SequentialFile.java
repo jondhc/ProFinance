@@ -1,11 +1,4 @@
-
-import java.io.BufferedReader;
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.FileNotFoundException;
-import java.io.FileOutputStream;
-import java.io.FileReader;
-import java.io.IOException;
+import java.io.*;
 
 //////////////////////////////////////
 
@@ -334,7 +327,7 @@ public class SequentialFile
     public void writeString(String aString)
     {
         if (firstLineHasBeenWritten)
-            aString = newLine+aString;
+            aString = aString;
             //end if
         else
             firstLineHasBeenWritten = true;
@@ -343,6 +336,18 @@ public class SequentialFile
         writeLine(""+newLine);
         eof = false;
     }//end writeString
+
+    public void writeFinalString(String aString) {
+        if (firstLineHasBeenWritten)
+            aString = aString;
+            //end if
+        else
+            firstLineHasBeenWritten = true;
+        //end else
+        writeLine(aString);
+        writeLine("");
+        eof = false;
+    }//end writeFinalString
 
 
     /** Writes a int value as a new line into the sequential file.
